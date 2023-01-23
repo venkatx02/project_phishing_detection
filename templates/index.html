@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Anti-Phish</title>
+    </head>
+    <body>
+    <div class="header">
+        <p class="logo">Anti-Phish</p>
+        <div class="header-right">
+            <div class="dropdown">
+                <button class="dropbtn">Creators</button>
+                <div class="dropdown-content">
+                  <p>Venkat</p>
+                  <p>Shyam</p>
+                  <p>Chinmaye</p>
+                  <p>Srestha</p>
+                </div>
+              </div>
+        </div>
+    </div>
+    <div class="center">
+        <h1 class="heading">Enter a URL and detect whether it is a phishing site or a benign one!</h1>
+        <form action="/" method="post">
+            <input type="text" name="urllink" placeholder="Enter an URL"><br />
+            <input type="submit" name="predict" value="Detect">
+        </form>
+        {% if prediction %}
+        <p class="result">URL: {{urllink}}</p>
+        <p class="result">{{prediction}}</p>
+        {% endif %}
+    </div>
+    </body>
+    <style>
+        html *{
+            font-family: 'Courier New', Courier, monospace;
+        }
+        body {
+            background-image: url('../static/bgimage.png');
+            background-size: cover;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: black;
+            padding: 5px 20px;
+            border-bottom: 1px solid #e6e6e6;
+        }
+        .header p {
+            float: left;
+            color: antiquewhite;
+            text-align: center;
+            padding: 5px;
+            font-size: 30px;
+            line-height: 25px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        .header-right p {
+            font-size: 20px;
+            float: right;
+        }
+        .center {
+            padding: 150px 0;
+            text-align: center;
+        }
+        .heading {
+            font-size: 25px;
+            color: antiquewhite;
+            text-shadow: 0 0 5px grey, 0 0 5px #000;
+        }
+        input[type=text]{
+            font-size: 25px;
+            width: 60%;
+            height: 50px;
+            border: 3px solid black;
+            border-radius:4px;
+            padding: 15px;
+            box-sizing: border-box;
+            transition:.3s;
+        }
+        input[type=text]:focus{
+            box-shadow:0 0 8px 0 antiquewhite;
+        }
+        input[type=submit]{
+            color: white;
+            margin: 25px;
+            border: 3px solid black;
+            outline: white;
+            font-weight: bolder;
+            border-radius: 5px;
+            height: 50px;
+            width: 150px;
+            background: black;
+            font-size: 20px;
+        }
+        input[type=submit]:hover{
+            cursor: pointer;
+            box-shadow: 0 0 5px rgb(247, 190, 190),
+                        0 0 20px rgb(247, 190, 190),
+                        0 0 60px rgb(247, 190, 190);
+
+        }
+        .result{
+            font-size: 30px;
+            color: white;
+            text-shadow: 0 0 10px black, 0 0 10px #000;
+        }
+        .dropbtn {
+            background-color: #000;
+            color: white;
+            padding-right: 80px;
+            font-size: 20px;
+        }
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        .dropdown-content {
+            border-radius: 10px;
+            text-align: center;
+            display: none;
+            position: absolute;
+            background-color: #f1f1f1;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+        .dropdown-content p {
+            text-align: center;
+            margin: 7.5%;
+            color: black;
+            padding: 5px 50px;
+            text-decoration: none;
+            display: block;
+        }
+        .dropdown:hover .dropdown-content {display: block;}
+    </style>
+</html>
